@@ -1,41 +1,31 @@
 const data = require('../data/zoo_data');
-// const lionId = '0938aa23-f153-4937-9f88-4858b24d6bce';
-// console.log(data.species.length)
-let arrayReturnt = [];
-function getSpeciesByIds(ids, id2) {
-  let teste = [];
-  if(ids !== undefined && id2 === undefined) {
 
-    for(let i = 0; i < 9; i += 1) {
-    /* console.log(species[i].id) */
-    if(ids === data.species[i].id) {
-    
-     return [data.species[i]]
-    
-    }
-    
-     
-   
-    }
-   
+function teste(K, KK, KKK) {
+  if (K !== undefined && KK === undefined) {
+    data.species.forEach((specie) => {
+      if (K === specie.id) {
+        KKK.push(specie);
+        return KKK;
+      }
+    });
   }
-  if(ids !== undefined && id2 !== undefined) {
-    for(let i = 0; i < 2; i += 1) {
-    /* console.log(species[i].id) */
-    if(ids === data.species[i].id) {
-     teste.push(data.species[i]);
-    }
-    if(id2 === data.species[i].id) {
-     teste.push(data.species[i])
-    }
-    // else{}
-    }
-     
-     
-    return teste
-    
-    }
-return teste
 }
-// console.log(getSpeciesByIds())
+//
+function testeR(K, KK, KKK) {
+  data.species.forEach((specie) => {
+    if (K === specie.id) { KKK.push(specie); }
+    if (KK === specie.id) { KKK.push(specie); }
+  });
+}
+//
+function getSpeciesByIds(ids, id2) {
+  const arrayGetSpec = [];
+  teste(ids, id2, arrayGetSpec);
+  if (ids !== undefined && id2 !== undefined) {
+    testeR(ids, id2, arrayGetSpec);
+    return arrayGetSpec;
+  }
+  return arrayGetSpec;
+}
+
 module.exports = getSpeciesByIds;
