@@ -22,11 +22,11 @@ function countEntrants(entrants) {
 //   child: 20.99,
 // },
 function calculateEntry(entrants) {
-  if(entrants === undefined || Object.keys(entrants).length === 0) {
+  if (entrants === undefined || Object.keys(entrants).length === 0) {
     return 0;
   }
   const qntEntrants = countEntrants(entrants);
-  return (qntEntrants.adult * 49.99) + (qntEntrants.child * 20.99)  + (qntEntrants.senior * 24.99);
+  return (qntEntrants.adult * 49.99) + (qntEntrants.child * 20.99) + (qntEntrants.senior * 24.99);
 }
 
 module.exports = { calculateEntry, countEntrants };
