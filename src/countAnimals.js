@@ -5,16 +5,16 @@ const data = require('../data/zoo_data');
 // console.log(data.species[0].residents[0].sex) // === a female return contador
 // criando funcao  que procura elemento
 function elemento(nomeDoAnimal) {
- let contador = 0;
- data.species.forEach((specie) => {
-   if (specie.name === nomeDoAnimal) {
-     specie.residents.forEach((resident) => {
-       if (resident.sex === 'female') {
-         contador += 1
-       }
-     });
-   }
- });
+  let contador = 0;
+  data.species.forEach((specie) => {
+    if (specie.name === nomeDoAnimal) {
+      specie.residents.forEach((resident) => {
+        if (resident.sex === 'female') {
+          contador += 1;
+        }
+      });
+    }
+  });
   return contador;
 }
 function elemento2(nomeDoAnimal) {
@@ -23,13 +23,13 @@ function elemento2(nomeDoAnimal) {
     if (specie.name === nomeDoAnimal) {
       specie.residents.forEach((resident) => {
         if (resident.sex === 'male') {
-          contador += 1
+          contador += 1;
         }
       });
     }
   });
-   return contador;
- }
+  return contador;
+}
 
 function seTiverVazio() {
   const arrayObjeto = {};
