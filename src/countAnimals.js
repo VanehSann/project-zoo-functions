@@ -1,10 +1,6 @@
 const data = require('../data/zoo_data');
 
-// console.log(data.species[0].name)
-// console.log(data.species[0].residents) // pecorre
-// console.log(data.species[0].residents[0].sex) // === a female return contador
-// criando funcao  que procura elemento
-function elemento(nomeDoAnimal) {
+function countFemaleSex(nomeDoAnimal) {
   let contador = 0;
   data.species.forEach((specie) => {
     if (specie.name === nomeDoAnimal) {
@@ -17,7 +13,7 @@ function elemento(nomeDoAnimal) {
   });
   return contador;
 }
-function elemento2(nomeDoAnimal) {
+function countMaleSex(nomeDoAnimal) {
   let contador = 0;
   data.species.forEach((specie) => {
     if (specie.name === nomeDoAnimal) {
@@ -47,9 +43,9 @@ function countAnimals(animal) {
     if (animal.specie === specie.name) {
       result = specie.residents.length;
     } else if (animal.sex === 'female') {
-      result = elemento(animal.specie);
+      result = countFemaleSex(animal.specie);
     } else if (animal.sex === 'male') {
-      result = elemento2(animal.specie);
+      result = countMaleSex(animal.specie);
     }
   });
   return result;
