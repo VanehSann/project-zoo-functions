@@ -19,6 +19,9 @@ function countEntrants(entrants) {
 
 function calculateEntry(entrants) {
   // seu código aqui
+  if(entrants === undefined) {
+    return 0;
+  }
 }
 
 module.exports = { calculateEntry, countEntrants };
