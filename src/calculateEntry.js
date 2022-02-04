@@ -18,10 +18,13 @@ function countEntrants(entrants) {
 }
 
 function calculateEntry(entrants) {
-  // seu código aqui
-  if(entrants === undefined) {
+  if(entrants === undefined || Object.keys(entrants).length === 0) {
     return 0;
   }
 }
 
 module.exports = { calculateEntry, countEntrants };
+
+// Referências::
+// Object.keys(obj).length == 0 :: link abaixo ::
+// https://pt.stackoverflow.com/questions/83588/em-javascript-como-verificar-que-um-objeto-est%C3%A1-vazio-sem-jquery
