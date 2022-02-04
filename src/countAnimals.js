@@ -1,6 +1,36 @@
 const data = require('../data/zoo_data');
 
-// criando funcionao  que procura elemento
+// console.log(data.species[0].name)
+// console.log(data.species[0].residents) // pecorre
+// console.log(data.species[0].residents[0].sex) // === a female return contador
+// criando funcao  que procura elemento
+function elemento(nomeDoAnimal) {
+ let contador = 0;
+ data.species.forEach((specie) => {
+   if (specie.name === nomeDoAnimal) {
+     specie.residents.forEach((resident) => {
+       if (resident.sex === 'female') {
+         contador += 1
+       }
+     });
+   }
+ });
+  return contador;
+}
+function elemento2(nomeDoAnimal) {
+  let contador = 0;
+  data.species.forEach((specie) => {
+    if (specie.name === nomeDoAnimal) {
+      specie.residents.forEach((resident) => {
+        if (resident.sex === 'male') {
+          contador += 1
+        }
+      });
+    }
+  });
+   return contador;
+ }
+
 function seTiverVazio() {
   const arrayObjeto = {};
   for (let index = 0; index < data.species.length; index += 1) {
@@ -17,9 +47,9 @@ function countAnimals(animal) {
     if (animal.specie === specie.name) {
       result = specie.residents.length;
     } else if (animal.sex === 'female') {
-      result = 0;
+      result = elemento(animal.specie);
     } else if (animal.sex === 'male') {
-      result = 2;
+      result = elemento2(animal.specie);
     }
   });
   return result;
